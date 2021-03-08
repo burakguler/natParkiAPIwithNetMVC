@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ParkiAPI</name>
+    </assembly>
+    <members>
+        <member name="M:ParkiAPI.Controllers.APIv2Controller.GetNationalParks">
+            <summary>
+            Get list of National Parks.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ParkiAPI.Controllers.NationalParksController.GetNationalParks">
+            <summary>
+            Get list of National Parks.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ParkiAPI.Controllers.NationalParksController.GetNationalPark(System.Int32)">
+            <summary>
+            Get individual National Park by Id.
+            </summary>
+            <param name="nationalParkId">The Id of the National Park</param>
+            <returns></returns>
+        </member>
+        <member name="M:ParkiAPI.Controllers.NationalParksController.CreateNationalPark(ParkiAPI.Models.NationalParkDto)">
+            <summary>
+            Create National Park.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ParkiAPI.Controllers.NationalParksController.UpdateNationalPark(System.Int32,ParkiAPI.Models.NationalParkDto)">
+            <summary>
+            Update National Park by Id.
+            </summary>
+            <param name="nationalParkId">The Id of the National Park</param>
+            <returns></returns>
+        </member>
+        <member name="M:ParkiAPI.Controllers.NationalParksController.DeleteNationalPark(System.Int32)">
+            <summary>
+            Delete National Park by Id.
+            </summary>
+            <param name="nationalParkId">The Id of the National Park</param>
+            <returns></returns>
+        </member>
+        <member name="M:ParkiAPI.Controllers.TrailsController.GetTrails">
+            <summary>
+            Get list of Trails.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ParkiAPI.Controllers.TrailsController.GetTrail(System.Int32)">
+            <summary>
+            Get individual Trail by Id.
+            </summary>
+            <param name="trailId">The Id of the Trail</param>
+            <returns></returns>
+        </member>
+        <member name="M:ParkiAPI.Controllers.TrailsController.GetTrailInNationalPark(System.Int32)">
+            <summary>
+            Get individual Trail by National Park Id.
+            </summary>
+            <param name="trailId">The Id of the Trail</param>
+            <returns></returns>
+        </member>
+        <member name="M:ParkiAPI.Controllers.TrailsController.CreateTrail(ParkiAPI.Models.Dtos.TrailCreateDto)">
+            <summary>
+            Create Trail.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ParkiAPI.Controllers.TrailsController.UpdateTrail(System.Int32,ParkiAPI.Models.Dtos.TrailUpdateDto)">
+            <summary>
+            Update Trail by Id.
+            </summary>
+            <param name="trailId">The Id of the Trail</param>
+            <returns></returns>
+        </member>
+        <member name="M:ParkiAPI.Controllers.TrailsController.DeleteTrail(System.Int32)">
+            <summary>
+            Delete Trail by Id.
+            </summary>
+            <param name="trailId">The Id of the Trail</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
