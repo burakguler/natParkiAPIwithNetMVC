@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ParkiAPI.Models
+namespace ParkiWEB.Models
 {
     public class Trail
     {
@@ -15,8 +15,6 @@ namespace ParkiAPI.Models
         public DifficultyType Difficulty { get; set; }
         [Required]
         public int NationalParkId { get; set; }
-        
         public NationalPark NationalPark { get; set; }
-        public DateTime DateCreated { get; set; }
     }
 }

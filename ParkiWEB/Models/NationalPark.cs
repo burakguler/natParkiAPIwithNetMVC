@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ParkiAPI.Models
+namespace ParkiWEB.Models
 {
     public class NationalPark
 

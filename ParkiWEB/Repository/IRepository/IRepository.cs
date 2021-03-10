@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ParkiWEB.Repository.IRepository
 {
-    interface IRepository<Type> where Type : class
+    public interface IRepository<Type> where Type : class
     {
         Task<Type> GetAsync(string url, int Id);
         Task<IEnumerable<Type>> GetAllAsync(string url);

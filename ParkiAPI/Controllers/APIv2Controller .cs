@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace ParkiAPI.Controllers
 {
-    [Route("api/v/v{version:apiVersion}/nationalparks")]
+    [Route("api/v{version:apiVersion}/nationalparks")]
     [ApiVersion("2.0")]
     //[Route("api/[controller]")] //changeable ~Burak
     [ApiController]

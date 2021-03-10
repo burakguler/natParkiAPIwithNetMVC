@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace ParkiAPI.Controllers
 {
-    [Route("api/v/v{version:apiVersion}/trails")]
+    [Route("api/v{version:apiVersion}/trails")]
     //[Route("api/Trails")] //static ~Burak
     [ApiController]
     //[ApiExplorerSettings(GroupName = "natParkiOpenAPISpecTrails")]

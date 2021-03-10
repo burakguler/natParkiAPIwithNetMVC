@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace ParkiAPI.Controllers
 {
-    [Route("api/v/{version:apiVersion}/nationalparks")]
+    [Route("api/v{version:apiVersion}/nationalparks")]
     //[Route("api/[controller]")] //changeable ~Burak
     [ApiController]
     //[ApiExplorerSettings(GroupName = "natParkiOpenAPISpecNationalParks")]

@@ -65,7 +65,7 @@ namespace ParkiWEB.Repository
 
         public async Task<Type> GetAsync(string url, int Id)
         {
-            var request = new HttpRequestMessage(HttpMethod.Get, url);
+            var request = new HttpRequestMessage(HttpMethod.Get, url+Id);
             var client = _clientFactory.CreateClient();
             HttpResponseMessage response = await client.SendAsync(request);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
