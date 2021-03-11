@@ -22,7 +22,6 @@ C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\obj\Debug\netcore
 C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\obj\Debug\netcoreapp3.1\ParkiWEB.TagHelpers.output.cache
 C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\obj\Debug\netcoreapp3.1\ParkiWEB.RazorCoreGenerate.cache
 C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -354,3 +353,6 @@ C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\obj\Debug\netcore
 C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\obj\Debug\netcoreapp3.1\Razor\Views\NationalParks\Index.cshtml.g.cs
 C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\obj\Debug\netcoreapp3.1\Razor\Views\NationalParks\Upsert.cshtml.g.cs
+C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\obj\Debug\netcoreapp3.1\Razor\Views\Trails\Index.cshtml.g.cs
+C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\obj\Debug\netcoreapp3.1\Razor\Views\Trails\Upsert.cshtml.g.cs
+C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\obj\Debug\netcoreapp3.1\Razor\Views\Home\Theme.cshtml.g.cs

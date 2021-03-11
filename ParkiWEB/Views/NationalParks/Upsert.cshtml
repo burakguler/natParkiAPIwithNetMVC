@@ -7,7 +7,7 @@
 
 <form method="post" asp-action="Upsert" enctype="multipart/form-data">
 
-    <div style="margin-bottom:50px;" class="card row px-3 mx-3 ">
+    <div style="margin-bottom:50px;" class="card row py-3 px-3">
 
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         @if (Model.Id != 0)
@@ -102,7 +102,8 @@
             $j("#datepicker").datepicker({
                 changeMonth: true,
                 changeYear: true,
-                yearRange: "1500:2021"
+                yearRange: "1500:2030",
+                dateFormat: 'dd.mm.yy'
             });
         });
     </script>

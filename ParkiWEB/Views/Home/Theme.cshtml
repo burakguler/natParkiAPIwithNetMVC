@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Theme";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>You can found free themes for bootstrap by visiting this site.</p>
+<strong>
+    <a href="https://bootswatch.com" target="_blank">Bootswatch.com</a><br />
+</strong>
+<p>To change the theme; Download the theme from the site mentioned above and do these steps.</p>
+
+<ul>
+    <li>Go to <strong>wwwroot</strong> in your solution explorer and find the <strong>lib</strong> folder.</li>
+    <li>In the <strong>lib</strong> folder find <strong>bootstrap</strong> than in bootstrap folder <strong>dist</strong> and last <strong>css</strong></li>
+    <li>Change <strong>bootstrap.css</strong></li>
+    <li><p>At last: go to <strong>_Layout.cshtml</strong> change <strong>"~/lib/bootstrap/dist/css/bootstrap.min.css"</strong> to <strong>bootstrap.css</strong></p> </li>
+
+</ul>

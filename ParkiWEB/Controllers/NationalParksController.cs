@@ -12,7 +12,7 @@ namespace ParkiWEB.Controllers
     public class NationalParksController : Controller
     {
         private readonly INationalParkRepository nationalParkRepository;
-        private object files;
+        private readonly object files;
 
         public NationalParksController(INationalParkRepository nationalParkRepository)
         {
