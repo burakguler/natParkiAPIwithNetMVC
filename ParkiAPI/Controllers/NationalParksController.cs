@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ParkiAPI.Models;
@@ -53,6 +54,7 @@ namespace ParkiAPI.Controllers
         [ProducesResponseType(200, Type = typeof(List<NationalParkDto>))]
         [ProducesResponseType(404)]
         [ProducesDefaultResponseType]
+        [Authorize]
         public IActionResult GetNationalPark(int nationalParkId) // gettingById singular item ~Burak
         {
             var obje = this.nationalParkRepository.GetNationalPark(nationalParkId);

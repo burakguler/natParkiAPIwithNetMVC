@@ -322,7 +322,6 @@ C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\bin\Debug\netcore
 C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Razor.dll
 C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
-C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\bin\Debug\netcoreapp3.1\System.Text.Json.dll
 C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll
 C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.resources.dll
@@ -356,3 +355,11 @@ C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\obj\Debug\netcore
 C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\obj\Debug\netcoreapp3.1\Razor\Views\Trails\Index.cshtml.g.cs
 C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\obj\Debug\netcoreapp3.1\Razor\Views\Trails\Upsert.cshtml.g.cs
 C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\obj\Debug\netcoreapp3.1\Razor\Views\Home\Theme.cshtml.g.cs
+C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Burak\Documents\GitHub\natParkiAPIwithNetMVC\ParkiWEB\bin\Debug\netcoreapp3.1\System.Text.Json.dll

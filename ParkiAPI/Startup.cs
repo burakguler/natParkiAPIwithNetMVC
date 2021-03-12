@@ -1,25 +1,18 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using ParkiAPI.Data;
 using ParkiAPI.Repository.IRepository;
-using AutoMapper;
 using ParkiAPI.ParkiMapper;
-using System.Reflection;
-using System.IO;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Microsoft.Extensions.Options;
+using ParkiAPI.Repository;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace ParkiAPI
 {
@@ -40,6 +33,7 @@ namespace ParkiAPI
 
             services.AddScoped<INationalParkRepository, NationalParkRepository>();
             services.AddScoped<ITrailRepository, TrailRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
             /* ^ after this code you can access the national park repository on any of controllers
                 Creates an instance for each incoming web request and 
                 uses the same instance for each incoming request, 
@@ -55,6 +49,13 @@ namespace ParkiAPI
             services.AddVersionedApiExplorer(options => options.GroupNameFormat = "'v'VVV");
             services.AddTransient<IConfigureOptions<SwaggerGenOptions>, SwaggerConfigOptions>();
             services.AddSwaggerGen();
+            var appSettings = Configuration.GetSection("AppSettings");
+            services.Configure<AppSettings>(appSettings);
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            });
            /*services.AddSwaggerGen(options => // not needed after versioning
             {
                 options.SwaggerDoc

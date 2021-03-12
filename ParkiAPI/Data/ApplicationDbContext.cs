@@ -1,9 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ParkiAPI.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ParkiAPI.Data
 {
@@ -16,6 +12,7 @@ namespace ParkiAPI.Data
 
         public DbSet<NationalPark> NationalPark { get; set; }
         public DbSet<Trail> Trails { get; set; }
+        public DbSet<User> Users { get; set; }
 
     }
 }
