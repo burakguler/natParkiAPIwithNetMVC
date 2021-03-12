@@ -13,6 +13,8 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 using Microsoft.Extensions.Options;
 using ParkiAPI.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace ParkiAPI
 {
@@ -49,12 +51,28 @@ namespace ParkiAPI
             services.AddVersionedApiExplorer(options => options.GroupNameFormat = "'v'VVV");
             services.AddTransient<IConfigureOptions<SwaggerGenOptions>, SwaggerConfigOptions>();
             services.AddSwaggerGen();
-            var appSettings = Configuration.GetSection("AppSettings");
-            services.Configure<AppSettings>(appSettings);
-            services.AddAuthentication(x =>
+
+            var appSettingsSection = Configuration.GetSection("AppSettings");
+            services.Configure<AppSettings>(appSettingsSection);
+
+            var appSettings = appSettingsSection.Get<AppSettings>();
+            var key = Encoding.UTF8.GetBytes(appSettings.Secret);
+            services.AddAuthentication(options =>
             {
-                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
             });
            /*services.AddSwaggerGen(options => // not needed after versioning
             {
@@ -68,7 +86,7 @@ namespace ParkiAPI
                             Description = "This rest API developed to understand Web API structure, SOLID principles and design patterns (repository, DTO etc.).",
                             Contact = new Microsoft.OpenApi.Models.OpenApiContact()
                             {
-                                Email = "guler-burak@outlook.com",
+                                Email = "",
                                 Name = "Burak Güler",
                                 Url = new Uri("https://www.linkedin.com/in/guler-burak/"),
                             },
@@ -90,7 +108,7 @@ namespace ParkiAPI
                 //           Description = "This rest API developed to understand Web API structure, SOLID principles and design patterns (repository, DTO etc.).",
                 //           Contact = new Microsoft.OpenApi.Models.OpenApiContact()
                 //           {
-                //               Email = "guler-burak@outlook.com",
+                //               Email = "",
                 //               Name = "Burak Güler",
                 //               Url = new Uri("https://www.linkedin.com/in/guler-burak/"),
                 //           },
@@ -142,7 +160,11 @@ namespace ParkiAPI
             //});
 
             app.UseRouting();
-
+            app.UseCors(cors => cors
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
