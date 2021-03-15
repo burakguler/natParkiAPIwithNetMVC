@@ -43,6 +43,7 @@ namespace ParkiAPI.Repository
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             user.Token = tokenHandler.WriteToken(token);
+            user.Password = ""; //for the security, we do not need to send the password after the token has been created ~Burak
             return user;
         }
 

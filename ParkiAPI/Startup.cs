@@ -30,6 +30,7 @@ namespace ParkiAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(); //Adding cors service
             services.AddDbContext<ApplicationDbContext>
                 (options => options.UseSqlServer(Configuration.GetConnectionString("natParkiConnection")));
 
@@ -160,7 +161,7 @@ namespace ParkiAPI
             //});
 
             app.UseRouting();
-            app.UseCors(cors => cors
+            app.UseCors(cors => cors //adding CORS
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader());
