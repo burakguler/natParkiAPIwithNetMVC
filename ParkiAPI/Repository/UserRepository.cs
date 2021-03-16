@@ -35,7 +35,8 @@ namespace ParkiAPI.Repository
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[] {
-                    new Claim(ClaimTypes.Name, user.Id.ToString())
+                    new Claim(ClaimTypes.Name, user.Id.ToString()),
+                    new Claim(ClaimTypes.Role, user.Role)
                 }),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials
@@ -49,12 +50,28 @@ namespace ParkiAPI.Repository
 
         public bool IsUniqueUser(string username)
         {
-            throw new NotImplementedException();
+            var user = this.dbContext.Users.SingleOrDefault(x => x.UserName == username);
+
+            // if user is null there isn't named user in database
+            if(user == null)
+            {
+                return true;
+            }
+            return false;
         }
 
         public User Register(string username, string password)
         {
-            throw new NotImplementedException();
+            User userObje = new User()
+            {
+                UserName = username,
+                Password = password,
+                Role ="Admin"
+            };
+            this.dbContext.Add(userObje);
+            this.dbContext.SaveChanges();
+            userObje.Password = "";
+            return userObje;
         }
     }
 }

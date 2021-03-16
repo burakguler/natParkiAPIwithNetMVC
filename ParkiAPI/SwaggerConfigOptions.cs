@@ -21,7 +21,7 @@ namespace ParkiAPI
                 options.SwaggerDoc(
                     description.GroupName, new Microsoft.OpenApi.Models.OpenApiInfo()
                     {
-                        Title=$"Parky API{description.ApiVersion}",
+                        Title=$"natParki API{description.ApiVersion}",
                         Version =description.ApiVersion.ToString()
                     });
             }

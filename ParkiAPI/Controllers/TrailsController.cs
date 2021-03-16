@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ParkiAPI.Models;
@@ -74,6 +75,7 @@ namespace ParkiAPI.Controllers
         [ProducesResponseType(200, Type = typeof(TrailDto))]
         [ProducesResponseType(404)]
         [ProducesDefaultResponseType]
+        [Authorize(Roles = "Admin")]
         public IActionResult GetTrailInNationalPark(int nationalParkId) // gettingById singular item ~Burak
         {
             var objeList = this.trailRepository.GetTrailsInNationalPark(nationalParkId);

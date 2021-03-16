@@ -1,19 +1,19 @@
 ﻿@model ParkiWEB.Models.IndexViewModel
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home Page ";
 }
-
+<br /><br />
 <div class="text-center">
     <h1 class="display-4">Welcome to natParkiAPI</h1>
 </div>
-
+<link href="~/css/S.css" rel="stylesheet" />
 <div class="container">
     <div class="row pb-4 backgroundWhite">
         @foreach (var nationalPark in Model.NationalParkList)
         {
 
-            <div class="container backgroundWhite pb-4">
-                <div class="card border rounded ">
+            <div class="container1 rounded backgroundWhite pb-4">
+                <div class="card shadow1 border  ">
                     <div class="card-header bg-dark text-light ml-0 row container">
                         <div class="col-12 col-md-6">
                             <h2 class="text-warning">@nationalPark.Name</h2>
@@ -33,10 +33,11 @@
                                         <div class="col-12">
                                             @if (Model.TrailList.Where(U => U.NationalParkId == nationalPark.Id).Count() > 0)
                                             {
-                                                <table class="table table-hover table-curved table-responsive">
+                                                <table class="table table-hover table-shadow table-responsive">
                                                     <thead class="thead-dark">
                                                         <tr>
-                                                            <th scope="row">Trail</th>
+                                                            <th scope="row">National Park Area</th>
+                                                            <th scope="row">Trail Name</th>
                                                             <th scope="row">Distance</th>
                                                             <th scope="row">Elevation Gain</th>
                                                             <th scope="row">Difficulty</th>
@@ -45,12 +46,14 @@
                                                     <tbody>
                                                         @foreach (var trails in Model.TrailList.Where(U => U.NationalParkId == nationalPark.Id))
                                                         {
-                                                            <tr>
-                                                                <td>@trails.Name</td>
-                                                                <td>@trails.Distance Kilometer</td>
-                                                                <td>@trails.Elevation Meter</td>
-                                                                <td>@trails.Difficulty</td>
-                                                            </tr>
+                                                        <tr>
+                                                            <td>@nationalPark.Area Hectares</td>
+                                                            <td>@trails.Name</td>
+                                                            <td>@trails.Distance Kilometer</td>
+                                                            <td>@trails.Elevation Meter</td>
+                                                            <td>@trails.Difficulty</td>
+
+                                                        </tr>
                                                         }
                                                     </tbody>
                                                 </table>
@@ -62,7 +65,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-lg-4 text-center rounded">
+                                <div  class="col-12 col-lg-4 text-center rounded">
                                     @{ 
                                         var base64 = Convert.ToBase64String(nationalPark.Image);
                                         var finalString = string.Format("data:image/jpg;base64,{0}", base64);

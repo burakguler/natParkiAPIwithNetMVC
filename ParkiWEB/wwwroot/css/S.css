@@ -1,0 +1,54 @@
+﻿
+.container {
+    border-radius: 10px;
+    position: relative;
+}
+
+.form-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); 
+}
+
+.shadow1 {
+    transition: box-shadow .3s;
+   /* Added */
+    margin-bottom: 10px;
+  
+    border-radius: 5px;
+    border: 1px solid;
+    background: #fff;
+    border-color: lightgrey;
+}
+
+    .shadow1:hover {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+
+.shadow2 {
+    transition: box-shadow .3s;
+    /* Added */
+    margin:auto;
+    margin-bottom: 10px;
+    float: none;
+    border-radius: 10px;
+    border: 1px solid;
+    background: #fff;
+    border-color: lightgrey;
+}
+
+.table-shadow {
+    transition: box-shadow .3s;
+    /* Added */
+    margin: auto;
+    margin-bottom: 10px;
+    float: none;
+    border-radius: 10px;
+    border: 1px solid;
+    background: #fff;
+    border-color: lightgrey;
+    width:fit-content();
+}
+.table-shadow:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}

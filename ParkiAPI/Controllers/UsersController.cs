@@ -23,7 +23,7 @@ namespace ParkiAPI.Controllers
         }
         [AllowAnonymous]
         [HttpPost("authenticate")]
-        public IActionResult Authenticate([FromBody]User model)
+        public IActionResult Authenticate([FromBody]AuthenticationModel model)
         {
             var user = this.userRepository.Authenticate(model.UserName, model.Password);
             if (user==null)
@@ -32,5 +32,24 @@ namespace ParkiAPI.Controllers
             }
             return Ok(user);
         }
+
+        [AllowAnonymous]
+        [HttpPost("register")]
+        public IActionResult Register([FromBody] AuthenticationModel model) 
+        {
+            bool ifUserNameUnique = this.userRepository.IsUniqueUser(model.UserName);
+            if (!ifUserNameUnique)
+            {
+                return BadRequest(new { message = "Username Already Exists!" });
+            }
+            var user = this.userRepository.Register(model.UserName, model.Password);
+
+            if (user == null)
+            {
+                return BadRequest(new { message = "Error while registering" });
+            }
+            return Ok();
+        }             
+
     }
 }
