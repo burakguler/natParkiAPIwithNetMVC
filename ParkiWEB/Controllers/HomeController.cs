@@ -33,8 +33,8 @@ namespace ParkiWEB.Controllers
         {
             IndexViewModel listOfParkAndTrails = new IndexViewModel()
             {
-                NationalParkList = await this.nationalParkRepository.GetAllAsync(StaticDetails.NationalParkAPIPath),
-                TrailList = await this.trailRepository.GetAllAsync(StaticDetails.TrailAPIPath),
+                NationalParkList = await this.nationalParkRepository.GetAllAsync(StaticDetails.NationalParkAPIPath, HttpContext.Session.GetString("JWToken")),
+                TrailList = await this.trailRepository.GetAllAsync(StaticDetails.TrailAPIPath, HttpContext.Session.GetString("JWToken")),
             };
             return View(listOfParkAndTrails);
         }
@@ -51,7 +51,7 @@ namespace ParkiWEB.Controllers
         }
 
         [HttpGet]
-        public IActionResult Login()
+        public async Task<IActionResult> Login()
         {
             User obje = new User();
             return View(obje);
@@ -73,9 +73,7 @@ namespace ParkiWEB.Controllers
             var principal = new ClaimsPrincipal(identity);
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
-
             HttpContext.Session.SetString("JWToken", objeUser.Token);
-            TempData["alert"] = "Welcome " + objeUser.UserName;
             return RedirectToAction("Index");
         }
 
@@ -93,14 +91,14 @@ namespace ParkiWEB.Controllers
             {
                 return View();
             }
-            TempData["alert"] = "Registeration Successful";
             return RedirectToAction("Login");
         }
 
-        public IActionResult Logout()
+        public async Task<IActionResult> Logout()
         {
+            await HttpContext.SignOutAsync();
             HttpContext.Session.SetString("JWToken", "");
-            return RedirectToAction("/Index");
+            return RedirectToAction("Index");
         }
 
         [HttpGet]

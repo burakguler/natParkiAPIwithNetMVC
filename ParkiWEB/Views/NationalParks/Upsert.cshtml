@@ -7,7 +7,7 @@
 
 <form method="post" asp-action="Upsert" enctype="multipart/form-data">
 
-    <div style="margin-bottom:50px;" class="card row py-3 px-3">
+    <div style="margin-top: 100px;border-radius: 15px" class="card row py-3 px-3">
 
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         @if (Model.Id != 0)
@@ -16,81 +16,87 @@
             title = "Edit National Park";
         }
         <div class="col-sm-12 col-md-12 col-lg-12 py-2 px-2 ">
-            <h2 class="text-primary">@title</h2>
+            <h2 class="text-primary mx-4">@title</h2>
         </div>
-        <div class="row">
-            <div class="col-sm-4 col-md-4 col-lg-5">
+        <div class="card-body">   <div class="row">
+            <div  class="col-sm-4 col-md-4 col-lg-5 ">
                 @if (Model.Image != null)
-                        {
-                            var base64 = Convert.ToBase64String(Model.Image);
-                            var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
-                    <img class="rounded mx-auto d-block" width="85%" src="@imgsrc" />
+                {
+                    var base64 = Convert.ToBase64String(Model.Image);
+                    var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+                    <img class="rounded mx-auto d-block" width="93%" src="@imgsrc" />
+                }
+                else { 
+                
+                        <img class="rounded mx-auto d-block" width="93%" src="https://dummyimage.com/600x400/000/fff" />
                 }
             </div>
-            <div class="col-sm-8 col-md-8 col-lg-7">
-                <div class="form-group row">
-                    <div class="col-sm-4 col-md-4 col-lg-3">
-                        <label asp-for="Name"></label>
+                <div class="col-sm-8 col-md-8 col-lg-7">
+                    <div class="form-group row">
+                        <div class="col-sm-4 col-md-4 col-lg-3">
+                            <label asp-for="Name"></label>
+                        </div>
+                        <div class="col-sm-8 col-md-8 col-lg-9">
+                            <input asp-for="Name" class="form-control" type="text" name="name" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
                     </div>
-                    <div class="col-sm-8 col-md-8 col-lg-9">
-                        <input asp-for="Name" class="form-control" type="text" name="name" />
-                        <span asp-validation-for="Name" class="text-danger"></span>
+                    <div class="form-group row">
+                        <div class="col-sm-4 col-md-4 col-lg-3">
+                            <label asp-for="Location"></label>
+                        </div>
+                        <div class="col-sm-8 col-md-8 col-lg-9">
+                            <input asp-for="Location" class="form-control" type="text" name="location" />
+                            <span asp-validation-for="Location" class="text-danger"></span>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-4 col-md-4 col-lg-3">
-                        <label asp-for="Location"></label>
+                    <div class="form-group row">
+                        <div class="col-sm-4 col-md-4 col-lg-3">
+                            <label asp-for="Area"></label>
+                        </div>
+                        <div class="col-sm-8 col-md-8 col-lg-9">
+                            <input asp-for="Area" class="form-control" type="text" name="area" />
+                            <span asp-validation-for="Area" class="text-danger"></span>
+                        </div>
                     </div>
-                    <div class="col-sm-8 col-md-8 col-lg-9">
-                        <input asp-for="Location" class="form-control" type="text" name="location" />
-                        <span asp-validation-for="Location" class="text-danger"></span>
+                    <div class="form-group row">
+                        <div class="col-sm-4 col-md-4 col-lg-3">
+                            <label asp-for="ListingDate"></label>
+                        </div>
+                        <div class="col-sm-8 col-md-8 col-lg-9">
+                            @{
+                                var listDate = "";
+                                if (Model.Id != 0)
+                                {
+                                    listDate = Model.ListingDate.ToShortDateString();
+                                }
+                            }                                   
+                           <input class="form-control" id="datepicker" value="@listDate" type="text" asp-for="@Model.ListingDate" name="listingdate" />
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-4 col-md-4 col-lg-3">
-                        <label asp-for="Area"></label>
+                    <div class="form-group row">
+                        <div class="col-sm-4 col-md-4 col-lg-3">
+                            <label asp-for="Image"></label>
+                        </div>
+                        <div class="col-sm-8 col-md-8 col-lg-9">
+                            <input asp-for="Image" multiple class="form-control" type="file" name="image" />
+                            <span asp-validation-for="Image" class="text-danger"></span>
+                        </div>
                     </div>
-                    <div class="col-sm-8 col-md-8 col-lg-9">
-                        <input asp-for="Area" class="form-control" type="text" name="area" />
-                        <span asp-validation-for="Area" class="text-danger"></span>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-4 col-md-4 col-lg-3">
-                        <label asp-for="ListingDate"></label>
-                    </div>
-                    <div class="col-sm-8 col-md-8 col-lg-9">
-                        @{
-                            var listDate = "";
-                            if (Model.Id != 0)
-                            {
-                                listDate = Model.ListingDate.ToShortDateString();
-                            }
-                        }                                   
-                       <input class="form-control" id="datepicker" value="@listDate" type="text" asp-for="@Model.ListingDate" name="listingdate" />
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-4 col-md-4 col-lg-3">
-                        <label asp-for="Image"></label>
-                    </div>
-                    <div class="col-sm-8 col-md-8 col-lg-9">
-                        <input asp-for="Image" multiple class="form-control" type="file" name="image" />
-                        <span asp-validation-for="Image" class="text-danger"></span>
-                    </div>
-                </div>
-                <div class="form-group row">
+                    <div class="form-group row">
                     
-                    <div class="col-sm-6 col-md-6 col-lg-6">
-                        <a asp-action="Index" class="btn btn-outline-secondary form-control">Back to List</a>
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <a asp-action="Index" class="btn btn-outline-secondary form-control">Back to List</a>
+                        </div>
+                        <div class=" col-sm-6 col-md-6 col-lg-6 ">
+                             <button type="submit" class="btn btn-success form-control">@(Model.Id!=0?"Update":"Create")</button>
+                        </div>
                     </div>
-                    <div class=" col-sm-6 col-md-6 col-lg-6 ">
-                         <button type="submit" class="btn btn-success form-control">@(Model.Id!=0?"Update":"Create")</button>
-                    </div>
-                </div>
 
-            </div>
+                </div>
+            </div>   
         </div>
+     
     </div>
 
 </form>

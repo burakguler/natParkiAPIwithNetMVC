@@ -4,28 +4,12 @@
     <link href="~/css/floatinglabel.css" rel="stylesheet" />
 </head>
 <body>
-    <br />
-
+    <div style="color: #f6f5f7; font-size:10.5px;">Blank</div>
     <div class="container" id="container">
 
-        <div class="container2 sign-up-container">
-
-            <form action="#" method="post">
-                <h1 class="h1-white">Create Account</h1>
-                @*<div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                     </div>*@
-
-                <input autofocus asp-for="UserName" type="text" placeholder="Username" value="" />
-                <input asp-for="Password" type="password" placeholder="Password" value="" />
-                <button type="submit" value="submit">Sign Up</button>
-            </form>
-        </div>
         <div class="container2 sign-in-container">
 
-            <form asp-for="Home" asp-action="Login" method="post">
+            <form method="post">
 
                 <h1 class="h1-white">Login</h1>
                 @*<div class="social-container">
@@ -37,34 +21,24 @@
                 <input asp-for="UserName" type="text" placeholder="Username" value="" />
                 <input asp-for="Password" type="password" placeholder="Password" value="" />
                 <p><a class="link" href="#">Forgot your password?</a></p>
-
-                <button>Login</button>
+                <button id="btnLoginPost" type="submit" value="submit">Login</button>
             </form>
         </div>
         <div class="overlay-container">
             <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <h1>Welcome Back!</h1>
-
-                    <p>To keep connected with us please login with your personal info</p>
-                    <button class="ghost" id="signIn">Login</button>
-                </div>
+                  
                 <div class="overlay-panel overlay-right">
-                    <h1>Hello, <br />Friend!</h1>
-
-                    <p>Enter your personal details and start journey with us</p>
                     <br />
-                    <button class="ghost" id="signUp">Sign Up</button>
+                    <h1>Hello, <br />Friend!</h1>
+                    <br />
+                    <p>Enter your personal details and start journey with us!</p>
+                    <br />
+                    <a asp-controller="Home" asp-action="Register">
+                        <button class="ghost" id="signUp">Sign Up</button>
+                    </a>
+
                 </div>
             </div>
         </div>
     </div>
-    <br />
-    <img class="container-fluid" style="width: 35%; left: 60%;" src="~/img/logo.png" />
 </body>
-
-
-@section Scripts{
-    <script src="~/js/changingform.js"></script>
-
-}

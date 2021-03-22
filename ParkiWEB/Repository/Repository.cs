@@ -2,6 +2,7 @@
 using ParkiWEB.Repository.IRepository;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,7 +15,7 @@ namespace ParkiWEB.Repository
         {
             _clientFactory = clientFactory;
         }
-        public async Task<bool> CreateAsync(string url, Type objeToCreate)
+        public async Task<bool> CreateAsync(string url, Type objeToCreate, string token="")
         {
             var request = new HttpRequestMessage(HttpMethod.Post, url);
             if(objeToCreate!=null)
@@ -27,6 +28,11 @@ namespace ParkiWEB.Repository
             }
 
             var client = _clientFactory.CreateClient();
+            if (token!=null && token.Length != 0)
+            {
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
+
             HttpResponseMessage response = await client.SendAsync(request);
             if(response.StatusCode == System.Net.HttpStatusCode.Created)
             {
@@ -36,10 +42,15 @@ namespace ParkiWEB.Repository
 
         }
 
-        public async Task<bool> DeleteAsync(string url, int Id)
+        public async Task<bool> DeleteAsync(string url, int Id, string token="")
         {
             var request = new HttpRequestMessage(HttpMethod.Delete, url + Id);
             var client = _clientFactory.CreateClient();
+            if (token != null && token.Length != 0)
+            {
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
+
             HttpResponseMessage response = await client.SendAsync(request);
             if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
             {
@@ -48,10 +59,15 @@ namespace ParkiWEB.Repository
             return false;
         }
 
-        public async Task<IEnumerable<Type>> GetAllAsync(string url)
+        public async Task<IEnumerable<Type>> GetAllAsync(string url, string token="")
         {
             var request = new HttpRequestMessage(HttpMethod.Get, url);
             var client = _clientFactory.CreateClient();
+            if (token != null && token.Length != 0)
+            {
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
+
             HttpResponseMessage response = await client.SendAsync(request);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
@@ -61,10 +77,15 @@ namespace ParkiWEB.Repository
             return null;
         }
 
-        public async Task<Type> GetAsync(string url, int Id)
+        public async Task<Type> GetAsync(string url, int Id, string token="")
         {
             var request = new HttpRequestMessage(HttpMethod.Get, url+Id);
             var client = _clientFactory.CreateClient();
+            if (token.Length != 0)
+            {
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
+
             HttpResponseMessage response = await client.SendAsync(request);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
@@ -74,7 +95,7 @@ namespace ParkiWEB.Repository
             return null;
         }
 
-        public async Task<bool> UpdateAsync(string url, Type objeToUpdate)
+        public async Task<bool> UpdateAsync(string url, Type objeToUpdate, string token="")
         {
             var request = new HttpRequestMessage(HttpMethod.Patch, url);
             if (objeToUpdate != null)
@@ -87,6 +108,11 @@ namespace ParkiWEB.Repository
             }
 
             var client = _clientFactory.CreateClient();
+            if (token != null && token.Length != 0)
+            {
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
+
             HttpResponseMessage response = await client.SendAsync(request);
             if (response.StatusCode == System.Net.HttpStatusCode.Created)
             {

@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Unauthorized User - ";
+}
+<head>
+    <link href="~/css/401page.css" rel="stylesheet" />
+</head>
+<body class="permission_denied">
+
+    <div id="particles-js"></div>
+    <div style="padding:0" class="denied__wrapper center"> <br />   
+        <h1> Oops,<br /> <span style="white-space:normal"> Access Denied!</span></h1>
+        <h3> You are not authorized for this page!</h3>
+
+        <img id="key" src="~/img/Key5.png" />
+        <br /><br />
+        <a asp-controller="Home" asp-action="Index">
+            <button class="denied__link ghost">Go Home</button>
+        </a>
+    </div>
+
+</body>

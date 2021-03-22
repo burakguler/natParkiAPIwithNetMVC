@@ -7,6 +7,8 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ParkiWEB.Controllers
 {
@@ -27,7 +29,7 @@ namespace ParkiWEB.Controllers
         }
         public async Task<IActionResult> Upsert(int? id)
         {
-            IEnumerable<NationalPark> nationalParkList = await this.nationalParkRepository.GetAllAsync(StaticDetails.NationalParkAPIPath);
+            IEnumerable<NationalPark> nationalParkList = await this.nationalParkRepository.GetAllAsync(StaticDetails.NationalParkAPIPath, HttpContext.Session.GetString("JWToken"));
             TrailsViewModel objeViewModel = new TrailsViewModel()
             {
                 NationalParkList = nationalParkList.Select(İ => new SelectListItem
@@ -43,7 +45,7 @@ namespace ParkiWEB.Controllers
                 return (View(objeViewModel));
             }
             // after pressed to update or edit button cursor will come here
-            objeViewModel.Trail = await this.trailRepository.GetAsync(StaticDetails.TrailAPIPath, id.GetValueOrDefault());
+            objeViewModel.Trail = await this.trailRepository.GetAsync(StaticDetails.TrailAPIPath, id.GetValueOrDefault(), HttpContext.Session.GetString("JWToken"));
             if (objeViewModel == null)
             {
                 return NotFound();
@@ -58,17 +60,17 @@ namespace ParkiWEB.Controllers
             {
                 if (obje.Trail.Id == 0)
                 {
-                    await this.trailRepository.CreateAsync(StaticDetails.TrailAPIPath, obje.Trail);
+                    await this.trailRepository.CreateAsync(StaticDetails.TrailAPIPath, obje.Trail, HttpContext.Session.GetString("JWToken"));
                 }
                 else
                 {
-                    await this.trailRepository.UpdateAsync(StaticDetails.TrailAPIPath + obje.Trail.Id, obje.Trail);
+                    await this.trailRepository.UpdateAsync(StaticDetails.TrailAPIPath + obje.Trail.Id, obje.Trail, HttpContext.Session.GetString("JWToken"));
                 }
                 return RedirectToAction(nameof(Index));
             }
             else
             {
-                IEnumerable<NationalPark> nationalParkList = await this.nationalParkRepository.GetAllAsync(StaticDetails.NationalParkAPIPath);
+                IEnumerable<NationalPark> nationalParkList = await this.nationalParkRepository.GetAllAsync(StaticDetails.NationalParkAPIPath, HttpContext.Session.GetString("JWToken"));
                 TrailsViewModel objeViewModel = new TrailsViewModel()
                 {
                     NationalParkList = nationalParkList.Select(İ => new SelectListItem
@@ -85,12 +87,12 @@ namespace ParkiWEB.Controllers
 
         public async Task<IActionResult> GetAllTrail()
         {
-            return Json(new { data = await this.trailRepository.GetAllAsync(StaticDetails.TrailAPIPath) });
+            return Json(new { data = await this.trailRepository.GetAllAsync(StaticDetails.TrailAPIPath, HttpContext.Session.GetString("JWToken")) });
         }
         [HttpDelete]
         public async Task<IActionResult> Delete(int id)
         {
-            var status = await this.trailRepository.DeleteAsync(StaticDetails.TrailAPIPath, id);
+            var status = await this.trailRepository.DeleteAsync(StaticDetails.TrailAPIPath, id, HttpContext.Session.GetString("JWToken"));
             if (status)
             {
                 return Json(new { success = true, message = "Deleted Successfully" });
