@@ -1,6 +1,4 @@
-<p align="center">
- # ![logo_transparent1](https://user-images.githubusercontent.com/42783418/111969915-c7ec8600-8b0b-11eb-824b-eb1243c9409f.png)
-</p>
+# ![logo_transparent1](https://user-images.githubusercontent.com/42783418/111969915-c7ec8600-8b0b-11eb-824b-eb1243c9409f.png)
 
 Using .Net Core 3.1
 
