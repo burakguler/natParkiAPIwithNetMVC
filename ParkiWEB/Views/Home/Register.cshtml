@@ -18,7 +18,7 @@
                  </div>*@
 
                 <input autofocus asp-for="UserName" type="text" placeholder="Username" value="" />
-                <input asp-for="Password" type="password" placeholder="Password" value="" />
+                <input asp-for="Password" type="password" placeholder="Password" value="" /><br />  
                 <button type="submit" value="submit">Sign Up</button>
             </form>
         </div>
@@ -29,6 +29,7 @@
                     <h1>Welcome Back!</h1>
                     <br />
                     <p>To keep connected with us please login with your personal info</p>
+                    <br />  
                     <a asp-controller="Home" asp-action="Login">
                         <button class="ghost">Login</button> 
                     </a>

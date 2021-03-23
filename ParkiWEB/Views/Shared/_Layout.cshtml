@@ -20,7 +20,7 @@
         <nav class="navbar fixed-top navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark box-shadow mb-3">
             <div class="container-fluid">
                 <div class="navbar-header">
-                     <a class="navbar-brand text-warning" asp-area="" asp-controller="Home" asp-action="Index"><img width="30%" src="~/img/logo_transparent2.png" /></a>
+                    <a class="navbar-brand text-warning" asp-area="" asp-controller="Home" asp-action="Index"><img width="30%" src="~/img/logo_transparent2.png" /></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -30,7 +30,7 @@
                 <div class="navbar-collapse collapse flex-sm-row-reverse">
                     <ul class="navbar-nav">
                         @if (httpAccessor.HttpContext.Session.GetString("JWToken") != null &&
-                       httpAccessor.HttpContext.Session.GetString("JWToken").ToString().Length > 0)
+                     httpAccessor.HttpContext.Session.GetString("JWToken").ToString().Length > 0)
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-white" asp-controller="Home" asp-action="Index">Home</a>
@@ -62,6 +62,7 @@
                             </li>
                         }
                     </ul>
+                    
                 </div>
             </div>
         </nav>
